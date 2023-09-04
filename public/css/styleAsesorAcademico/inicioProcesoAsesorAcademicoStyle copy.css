@@ -1,0 +1,344 @@
+:root{
+    --width: 280px;
+    --padding: 10px;
+    --bgcolor: #FF7B00;
+    --hovercolor: #cd6e15;
+    --width-collapsed: 50px; 
+    --color-borde-container: #dde3e7;
+    --color-borde-items: #747879;
+    --width-logo: 100px;
+    --color-informacion-general-item: #D9D9D9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ html {
+    font-size: 62.5%;
+    
+} 
+ body{
+    background-color: #F5F5F5;
+    width: 100%;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    /* position: fixed; */
+    /* left: 5rem; */
+    top: 0;
+    bottom: 0;
+    /* right: 0; */
+}
+a{
+    text-decoration: none;
+    display: inline;
+    color: black;
+}
+.main-container{
+    display: grid;
+    /* aplico el tama;o para separa las secciones 
+    de esta vista en este caso son 3 secciones navegacion 
+    informacion general y el data table */
+    grid-template-rows: 0.5fr 0.8fr 2fr 9fr; 
+    margin-left: 0;
+    height: 100%;
+    width: calc(100% - var(--width-collapsed));
+    text-transform: uppercase;
+    top: 0;
+
+
+    /* background-color: black; */
+} 
+
+/* inicia la seccion de navegacion */
+.separador-navegacion{
+    height: auto;
+    width: 1.5rem;
+}
+
+.barra-navegacion{
+    display: grid;
+    width: 100%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-left: 0;
+    margin-bottom: 1.3rem;
+    height:3rem ;
+    /* border-bottom: solid 1px #9a9696; */
+
+    /* border-bottom: #9a9696; */
+}
+
+
+
+.barra-navegacion .items-navegacion{
+    font-size: 1.3rem;
+    height: 1.5rem;
+    justify-content: start;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+/* termina la seccion de navagecion */
+/* inicia seccion del buscador */
+.buscador-matricula{
+    display: grid;
+    grid-template-columns: 10fr 3fr;
+    gap: 3rem;
+    text-transform: uppercase;
+    top: 0;
+    margin-bottom: 1rem;
+    height: auto;
+    width: 100%;
+}
+.buscador-matricula .barra-buscador-matricula{
+    margin-top: 0;
+    margin-left: 5rem;
+    height: auto;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.buscador-matricula .boton-buscador{
+    font-size: 14;
+    margin-top: 0;
+    margin-right: 3rem;
+    height: auto;
+    width: 65%;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 2 / 2 / 3;
+
+}
+
+/* termina seccion del buscador */
+
+/* inicia seccion de informacion general */
+h1{
+    align-items: center;
+    
+}
+
+.detalle-general-pagina{
+    display: grid;
+    grid-template-rows: 1.4fr 9fr;
+    height: 100%;
+    margin-top: 0;
+}
+
+.detalle-general-pagina .nombre-pagina{
+    display: grid;
+    justify-items: center ;
+    height: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2.7rem;
+    
+}
+.detalle-general-pagina .informacion-general{
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    justify-items: center;
+    bottom: 2rem;
+}
+.informacion-general .contenido-informacion-general{
+    /* background-color: #cd6e15; */
+    grid-column: 2 / 3;
+    display: grid;
+    /* divido las columnos del grid
+    para posicionar los items del contenendor 
+    informacion general */
+    /* grid-template-columns: repeat(auto-fill, minmax(500px, 0.2fr repeat(3, 1fr) 0.2fr));  */
+    grid-template-columns: 0.2fr repeat(3, 1fr) 0.2fr;
+    grid-template-rows: 0.2fr repeat(2, 1fr) 0.2fr;
+    font-size: 1.6rem;
+    gap: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-container);
+}
+
+.cantidad-alumnos{
+    display: grid;
+    grid-template-rows: minmax(0.1fr, 1rem) minmax(1fr, 1000px);
+    background-color: var(--color-informacion-general-item);
+    grid-area: 2 / 2 / 3 / 3;
+    border-radius: 1.5rem;
+    justify-items: center ;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+    /* grid-column: 2 / 3; */
+    /* grid-row: 2 / 3; */
+}
+.alumnos-con-empresa{
+    display: grid;
+    grid-template-rows: minmax(0.1fr, 5rem) 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color-informacion-general-item);
+    grid-area: 2 / 3 / 3 / 4;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+
+}
+
+.alumnos-sin-empresa{
+    display: grid;
+    /* grid-template-rows: 0.5fr 1fr 0.1fr; */
+    grid-template-rows: minmax(0.1fr, 5rem) 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color-informacion-general-item);
+    grid-area: 2 / 4 / 3 / 5;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+
+}
+.cantidad-empresas{
+    display: grid;
+    grid-template-rows: minmax(0.1fr, 5rem) 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color-informacion-general-item);
+    grid-area: 3 / 2 / 4 / 3;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+
+}
+.empresas-con-convenio{
+    display: grid;
+    grid-template-rows: minmax(0.1fr, 5rem) 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color-informacion-general-item);
+    grid-area: 3 / 3 / 4 / 4;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+
+}
+.empresas-sin-convenio{
+    display: grid;
+    grid-template-rows: minmax(0.1fr, 5rem) 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--color-informacion-general-item);
+    grid-area: 3 / 4 / 4 /5;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+
+}
+/* overflow de etiquetas */
+.cantidad-alumnos h3{
+    width: 100%;
+    text-align:center;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+}
+.alumnos-con-empresa h3{
+    width: 100%;
+    text-align:center;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+
+}
+
+.alumnos-sin-empresa h3{
+    width: 100%;
+    text-align:center;
+    overflow: hidden;
+    /* white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+.cantidad-empresas h3{
+    width: 100%;
+    overflow: hidden;
+    text-align:center;
+    /* white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+.empresas-con-convenio h3{
+    width: 100%;
+    text-align:center;
+    overflow: hidden;
+    /* white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+.empresas-sin-convenio h3{
+    width: 100%;
+    text-align:center;
+    overflow: hidden;
+    /* white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+
+@media screen and (max-width: 1280px){
+    .separador-navegacion{
+        height: auto;
+        width: 1rem;
+    }
+    .barra-navegacion{
+        /* margin-top: 5.6rem; */
+        font-size: 1rem;
+    }
+    .barra-navegacion .items-navegacion{
+        font-size: 1rem;
+        height: 1.5rem;
+        justify-content: start;
+        align-items: center;
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .buscador-matricula{
+        margin-top: 1rem;
+    }
+    .buscador-matricula .barra-buscador-matricula{
+        font-size: 1.1rem;
+    }
+    .buscador-matricula .boton-buscador{
+        font-size: 1rem;
+    }
+    .detalle-general-pagina .nombre-pagina{
+        font-size: 2.2rem;
+    }
+    .informacion-general .contenido-informacion-general{
+        /* background-color: #cd6e15; */
+        font-size: 1rem;
+    }
+
+}
+
+
+@media screen and (max-width: 600px){
+    .main-container{
+        width: 100%;
+    }
+    .barra-navegacion{
+        margin-top: 5.6rem;
+    }
+}

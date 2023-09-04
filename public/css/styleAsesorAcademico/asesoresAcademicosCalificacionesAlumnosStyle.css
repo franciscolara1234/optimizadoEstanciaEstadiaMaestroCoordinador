@@ -1,0 +1,319 @@
+:root{
+    --width: 280px;
+    --padding: 10px;
+    --bgcolor: #FF7B00;
+    --hovercolor: #cd6e15;
+    --width-collapsed: 50px; 
+    --color-borde-container: #b9bcbe;
+    --color-borde-items: #747879;
+    --width-logo: 100px;
+    --color-informacion-general-item: #D9D9D9;
+    --documentacion-aceptada: #4FB420;
+    --documentacion-rechazada: #F18989;
+    --documentacion-sin-intento: #FEEED2;
+    --border-radius: 1.5rem;
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ html {
+    font-size: 62.5%;
+    
+} 
+ body{
+    background-color: #F5F5F5;
+    width: 100%;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    /* position: fixed; */
+    /* left: 5rem; */
+    top: 0;
+    bottom: 0;
+    /* right: 0; */
+}
+a{
+    text-decoration: none;
+    display: inline;
+    color: black;
+}
+.main-container{
+    display: grid;
+    /* aplico el tama;o para separa las secciones 
+    de esta vista en este caso son 3 secciones navegacion 
+    informacion general y el data table */
+    grid-template-rows: 0.5fr 0.5fr 3fr 6fr; 
+    margin-left: 0;
+    height: 100%;
+    width: calc(100% - var(--width-collapsed));
+    text-transform: uppercase;
+    top: 0;
+    overflow-y: scroll;
+
+    /* background-color: black; */
+} 
+
+/* inicia la seccion de navegacion */
+.separador-navegacion{
+    height: auto;
+    width: 1.5rem;
+}
+
+.barra-navegacion{
+    display: grid;
+    width: 70%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-left: 0;
+    margin-bottom: 1.2rem;
+    height:3rem ;
+    /* border-bottom: solid 1px #9a9696; */
+
+    /* border-bottom: #9a9696; */
+}
+
+
+.barra-navegacion .items-navegacion{
+    font-size: 1.3rem;
+    height: 1.5rem;
+    justify-content: start;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+/* termina la seccion de navagecion */
+/* inicia seccion del buscador */
+.buscador-matricula{
+    display: grid;
+    grid-template-columns: 10fr 3fr;
+    gap: 3rem;
+    text-transform: uppercase;
+    top: 0;
+    margin-bottom: 1rem;
+    height: auto;
+    width: 100%;
+}
+.buscador-matricula .barra-buscador-matricula{
+    margin-top: 0;
+    margin-left: 5rem;
+    height: auto;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.buscador-matricula .boton-buscador{
+    font-size: 14;
+    margin-top: 0;
+    margin-right: 3rem;
+    height: auto;
+    width: 65%;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 2 / 2 / 3;
+
+}
+
+/* termina seccion del buscador */
+
+/* inicia seccion de informacion general */
+h1{
+    align-items: center;
+    
+}
+
+.detalle-general-pagina{
+    display: grid;
+    grid-template-rows: 0.1fr 0.8fr;
+    height: 100%;
+    margin-top: 0;
+}
+.detalle-general-pagina .nombre-pagina{
+    display: grid;
+    grid-template-columns: minmax(370px, 1fr);
+    justify-items: center ;
+    height: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.7rem;
+    
+}
+
+.detalle-general-pagina .contenedor-informacion-calificaciones-alumnos{
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr ;
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+    height: 100%;
+    width: 80%;
+    left: 0;
+    top: 0;
+    margin: 1rem 5rem;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--border-radius);
+    border-color: var(--color-borde-container);
+    border-style: solid;
+    gap: 2rem;
+}
+.alumnos-total{
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 66%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    border-style: solid ;
+    border-color: var(--color-borde-container);
+    background-color: var(--color-informacion-general-item);
+}
+.alumnos-total p {
+    margin: 0 1rem;
+    width: auto;
+}
+
+.alumnos-pendientes-de-calificacion{
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 66%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    border-style: solid ;
+    border-color: var(--color-borde-container);
+    background-color: var(--color-informacion-general-item);
+}
+.alumnos-pendientes-de-calificacion p{
+     margin: 0 1rem;
+    width: auto;
+
+}
+.alumnos-aprobados{
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 66%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    border-style: solid ;
+    border-color: var(--color-borde-container);
+    background-color: var(--color-informacion-general-item);
+}
+.alumnos-aprobados p{
+    margin: 0 1rem;
+    width: auto;
+
+}
+.alumnos-reprobados{
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 66%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    border-style: solid ;
+    border-color: var(--color-borde-container);
+    background-color: var(--color-informacion-general-item);
+}
+.alumnos-reprobados p{
+    margin: 0 1rem;
+        width: auto;
+        text-align: center;
+
+
+}
+/* comienzo del contenedor informacion alumno */
+
+.contenedor-data-table{
+    /* background-color:aqua; */
+    margin: 1rem 0;
+}
+
+
+
+@media screen and (max-width: 1280px){
+    .contenedor-data-table{
+        /* background-color:aqua; */
+        font-size: 1.4rem;
+    }
+    
+    .separador-navegacion{
+        height: auto;
+        width: 1rem;
+    }
+    .barra-navegacion{
+        /* margin-top: 5.6rem; */
+        font-size: 1rem;
+    }
+    .barra-navegacion .items-navegacion{
+        font-size: 1rem;
+        height: 1.5rem;
+        justify-content: start;
+        align-items: center;
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .buscador-matricula{
+        margin-top: 1rem;
+    }
+    .buscador-matricula .barra-buscador-matricula{
+        font-size: 1.1rem;
+    }
+    .buscador-matricula .boton-buscador{
+        font-size: 1rem;
+    }
+    .detalle-general-pagina .nombre-pagina{
+        font-size: 2.2rem;
+    }
+    .informacion-general .contenido-informacion-general{
+        /* background-color: #cd6e15; */
+        font-size: 1rem;
+    }
+
+    /*  aqui empieza contenedor de informacion cedulas */
+
+    .detalle-general-pagina .contenedor-informacion-calificaciones-alumnos{
+    font-size: 1rem;
+    font-weight: bold;
+}
+}
+
+@media screen and (max-width: 600px){
+    .main-container{
+        width: 100%;
+    }
+    .barra-navegacion{
+        margin-top: 5.6rem;
+    }
+}
+

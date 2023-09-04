@@ -1,0 +1,812 @@
+:root{
+    --width: 280px;
+    --padding: 10px;
+    --bgcolor: #FF7B00;
+    --hovercolor: #cd6e15;
+    --width-collapsed: 50px; 
+    --color-borde-container: #b9bcbe;
+    --color-borde-items: #747879;
+    --width-logo: 100px;
+    --color-informacion-general-item: #D9D9D9;
+    --documentacion-aceptada: #4FB420;
+    --documentacion-rechazada: #F18989;
+    --documentacion-sin-intento: #FEEED2;
+    --border-radius: 1.5rem;
+    --verde:#4FB420;
+    --morado: #B663E9;
+    --rojo: #EA4B4B ;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ html {
+    font-size: 62.5%;
+    
+} 
+ body{
+    background-color: #F5F5F5;
+    width: 100%;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    /* position: fixed; */
+    /* left: 5rem; */
+    top: 0;
+    bottom: 0;
+    /* right: 0; */
+}
+a{
+    text-decoration: none;
+    display: inline;
+    color: black;
+}
+.main-container{
+    display: grid;
+    /* aplico el tama;o para separa las secciones 
+    de esta vista en este caso son 3 secciones navegacion 
+    informacion general y el data table */
+    grid-template-rows: 0.4fr 0.34fr 2fr 1.5fr 4.5fr; 
+    /* grid-template-rows: 0.5fr 0.5fr 3fr 6fr;  */
+
+    margin-left: 0;
+    height: 100%;
+    width: calc(100% - var(--width-collapsed));
+    text-transform: uppercase;
+    top: 0;
+    overflow-y: scroll;
+
+    /* background-color: black; */
+} 
+
+/* inicia la seccion de navegacion */
+.separador-navegacion{
+    height: auto;
+    width: 1.5rem;
+}
+
+.barra-navegacion{
+    display: grid;
+    width: 100%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-left: 0;
+    height:3rem ;
+    /* border-bottom: solid 1px #9a9696; */
+
+    /* border-bottom: #9a9696; */
+}
+
+
+.barra-navegacion .items-navegacion{
+    width: 30rem; /* el with se usa para realizar la separacion de los contenedores**/
+    height: auto;
+    margin-left: 3rem;
+    margin-bottom: 0rem;
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* termina la seccion de navagecion */
+/* inicia seccion del buscador */
+.buscador-matricula{
+    display: grid;
+    grid-template-columns: 10fr 3fr;
+    gap: 3rem;
+    text-transform: uppercase;
+    top: 0;
+    margin-bottom: 1rem;
+    height: 100%;
+    width: 100%;
+}
+.buscador-matricula .barra-buscador-matricula{
+    margin-top: 0;
+    margin-left: 5rem;
+    height: auto;
+    width: auto;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.buscador-matricula .boton-buscador{
+    font-size: 14;
+    margin-top: 0;
+    margin-right: 3rem;
+    height: auto;
+    width: 65%;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 2 / 2 / 3;
+
+}
+
+/* termina seccion del buscador */
+
+/* inicia seccion de informacion general */
+h1{
+    align-items: center;
+    
+}
+
+.detalle-general-pagina{
+    display: grid;
+    grid-template-rows: 1.4fr 5fr;
+    height: 100%;
+    margin-top: 0;
+    margin-top: 2rem;
+}
+.detalle-general-pagina .nombre-pagina{
+    display: grid;
+    grid-template-columns: minmax(370px, 1fr);
+    justify-items: center ;
+    height: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.7rem;
+    
+}
+
+.detalle-general-pagina .contenedor-informacion-alumno{
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    height: 90%;
+    width: 100%;
+    left: 0;
+
+}
+
+/* comienzo del contenedor informacion alumno */
+
+.contenedor-informacion-alumno .contenedor-items-alumno{
+    display: grid;
+    grid-column: 2 / 3;
+    grid-template-columns: 3fr 6fr 4fr 5fr 0.4fr;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-container);
+    font-size: 1.4rem;
+    font-weight: bold;
+    gap: 1.3rem;
+    /* text-align: right; */
+    overflow-x: scroll;
+}
+.contenedor-informacion-alumno .contenedor-items-alumno::-webkit-scrollbar {
+    display: none;
+}
+
+.contenedor-asignatura-alumno{
+    display: grid;
+    grid-area: 1 / 1 / 3 / 2;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.contenedor-nombre-alumno{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+}
+.contenedor-matricula-alumno{
+    display: grid;
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.contenedor-carrera-alumno{
+    display: grid;
+    grid-area: 1 / 4 / 2 / 5;
+
+}
+
+.contenedor-empresa-alumno{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+
+}
+
+.contenedor-empresa-convenio-alumno{
+    display: grid;
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.contenedor-ver-cedula-alumno{
+    display: grid;
+    grid-area: 2 / 4 /3 / 5;
+}
+
+.contenedor-asignatura-alumno{
+    display: grid;
+    grid-template-rows: 1.2fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.contenedor-asignatura-alumno .imagen-proceso-asignatura{
+    display: grid;
+    align-items: flex-end;
+    justify-content: center;
+}
+.contenedor-asignatura-alumno .imagen-proceso-asignatura .imagen-proceso{
+    height:6rem;
+}
+.contenedor-asignatura-alumno .nombre-proceso-asignatura{
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.contenedor-nombre-alumno .nombre-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-matricula-alumno .matricula-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-carrera-alumno .carrera-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-empresa-alumno .empresa-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-empresa-convenio-alumno .empresa-convenio-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor-ver-cedula-alumno .ver-cedula{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* aqui empieza seccion estatus de definicion proyecto*/
+.contenedor-informacion-cedula{
+    display: grid;
+    grid-template-columns: 0.5fr 5fr 0.5fr;
+    margin-bottom: 3rem;
+}
+
+.contenedor-items-cedula{
+    display: grid;
+    grid-column: 2 / 3;
+    border-style: solid;
+    border-radius: 1.5rem;
+    /* border-color: var(--color-borde-container); */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 1rem;
+    height: 100%;
+}
+/* aqui comienza seccion de observaciones */
+.contenedor-observaciones{
+    background-color: #e6e6e6;
+    display: grid;
+    grid-template-columns: 0.13fr 5fr 0.13fr; 
+    width: 100%;
+    height: 100%;
+    /* grid-template-rows: 1fr 9fr; */
+    justify-content: center;
+    align-items: center;
+
+}
+.contenedor-observaciones-generales{
+    /* background-color: #e6e6e6; */
+    display: grid;
+    grid-column: 2 / 3;
+    /* grid-area: 1/ 1/ 2/ 3; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.boton-ingresar-calificacion{
+    display: grid;
+    grid-area: 1/ 2/ 2/ 3;
+    width: 80%;
+    height: 80%;
+    text-transform: uppercase;
+    /* font-weight: 700; */
+    justify-self: center;
+    margin: 1rem 1rem;
+    border-style: solid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    /* grid-area: 1/ 1/ 2/ 2; */
+    border-radius: var(--border-radius);
+    
+}
+.boton-ingresar-calificacion2{
+    display: grid;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+}
+.contenedor-calificaciones{
+    display: grid;
+    grid-area: 2/ 1/ 3/ 4 ;
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    width: 100%;
+    height: 100%;
+}
+/* empieza el contenedor de primeras calificaciones */
+.contenedor-calificaciones .primeras-calificaciones{
+    display: grid;
+    grid-template-rows: 1fr 9fr ;
+    justify-self: center;
+    margin: 2rem 2rem;
+}
+.titulo-actitud{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    background-color: var(--verde);
+}
+.contenido-primera-calificacion{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.aptitudes-1{
+    display: grid;
+    grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-1{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.asistencia-puntualidad{
+    display: grid;
+    grid-area: 2 / 1 / 3 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-01{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.respeto-normas-reglamento{
+    display: grid;
+    grid-area: 3 / 1 / 4 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-02{
+    display: grid;
+    grid-area: 3 / 2 / 4 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.diciplina-tareas-asignadas{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.diciplina-tareas-asignadas{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-03{
+    display: grid;
+    grid-area: 4 / 2 / 5 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.capacidad-integracion-colaboracion{
+    display: grid;
+    grid-area: 5 / 1 / 6 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-04{
+    display: grid;
+    grid-area: 5 / 2 / 6 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+
+/* empieza segundas calificaiones */
+
+.contenedor-calificaciones .segundas-calificaciones{
+    display: grid;
+    grid-template-rows: 1fr 9fr ;
+    justify-self: center;
+    margin: 2rem 2rem;
+}
+.titulo-desempenio{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    background-color: var(--morado);
+}
+.contenido-segunda-calificacion{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.aptitudes-2{
+    display: grid;
+    grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-2{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.cumplimiento-plan-trabajo{
+    display: grid;
+    grid-area: 2 / 1 / 3 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-05{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.interes-funcion-empresa{
+    display: grid;
+    grid-area: 3 / 1 / 4 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-06{
+    display: grid;
+    grid-area: 3 / 2 / 4 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.entrega-resultados-tareas-asignadas{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+/* .diciplina-tareas-asignadas{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+} */
+.calificacion-07{
+    display: grid;
+    grid-area: 4 / 2 / 5 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.toma-decisiones-oportunas{
+    display: grid;
+    grid-area: 5 / 1 / 6 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-08{
+    display: grid;
+    grid-area: 5 / 2 / 6 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.demuestra-seguridad-habilidad{
+    display: grid;
+    grid-area: 6 / 1 / 7 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+
+/* comienza terceras calificaciones */
+
+
+.contenedor-calificaciones .terceras-calificaciones{
+    display: grid;
+    grid-template-rows: 1fr 9fr ;
+    justify-self: center;
+    margin: 2rem 2rem;
+}
+.titulo-producto{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    background-color: var(--rojo);
+}
+
+.contenido-tercera-calificacion{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.aptitudes-3{
+    display: grid;
+    grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-3{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.redacción-ortografía-formato{
+    display: grid;
+    grid-area: 2 / 1 / 3 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-10{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.cumplimiento-proyecto{
+    display: grid;
+    grid-area: 3 / 1 / 4 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.calificacion-11{
+    display: grid;
+    grid-area: 3 / 2 / 4 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+.conclusiones-contribucion-tecnica{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+/* .diciplina-tareas-asignadas{
+    display: grid;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+} */
+.calificacion-12{
+    display: grid;
+    grid-area: 4 / 2 / 5 / 3;
+    height: 100%;
+    width: 100%;
+    border-style: solid ;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1280px){
+    .separador-navegacion{
+        height: auto;
+        width: 1rem;
+
+    }
+    .barra-navegacion{
+        /* margin-top: 5.6rem; */
+        font-size: 1rem;
+    }
+    .barra-navegacion .items-navegacion{
+        font-size: 1rem;
+        height: 1.5rem;
+        justify-content: start;
+        align-items: center;
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .buscador-matricula{
+        margin-top: 1rem;
+    }
+    .buscador-matricula .barra-buscador-matricula{
+        font-size: 1.1rem;
+    }
+    .buscador-matricula .boton-buscador{
+        font-size: 1rem;
+    }
+    .detalle-general-pagina .nombre-pagina{
+        font-size: 2.2rem;
+    }
+    .informacion-general .contenido-informacion-general{
+        /* background-color: #cd6e15; */
+        font-size: 1rem;
+    }
+
+    /*  aqui sirve esto */
+    .contenedor-informacion-alumno .contenedor-items-alumno{
+        font-size: 1rem;
+        font-weight: bold;
+
+    }
+    .contenedor-asignatura-alumno .nombre-proceso-asignatura{
+
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+    /* inicia el contenedor de codigo de colores */
+    .contenedor-items-cedula{
+        font-size: 1rem;
+    }
+    /* contenedor observaciones */
+    .contenedor-observaciones-generales{
+        font-size: 1rem;
+        font-weight: bold;
+
+
+    }
+    .remitente-academico{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .remitente-coordinador{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .boton-rechazar-cedula{
+        font-size: 1rem;
+        height: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0.2rem 0.2rem;
+    }
+    .boton-aprobar-cedula{
+        font-size: 1rem;
+        height: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0.2rem 0.2rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .main-container{
+        width: 100%;
+    }
+    .barra-navegacion{
+        margin-top: 5.6rem;
+    }
+}
+

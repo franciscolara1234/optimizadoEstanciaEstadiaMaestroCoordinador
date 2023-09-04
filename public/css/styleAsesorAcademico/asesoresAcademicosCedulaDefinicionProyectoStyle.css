@@ -1,0 +1,487 @@
+:root{
+    --width: 280px;
+    --padding: 10px;
+    --bgcolor: #FF7B00;
+    --hovercolor: #cd6e15;
+    --width-collapsed: 50px; 
+    --color-borde-container: #b9bcbe;
+    --color-borde-items: #747879;
+    --width-logo: 100px;
+    --color-informacion-general-item: #D9D9D9;
+    --documentacion-aceptada: #4FB420;
+    --documentacion-rechazada: #F18989;
+    --documentacion-sin-intento: #FEEED2;
+    --border-radius: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ html {
+    font-size: 62.5%;
+    
+} 
+ body{
+    background-color: #F5F5F5;
+    width: 100%;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    /* position: fixed; */
+    /* left: 5rem; */
+    top: 0;
+    bottom: 0;
+    /* right: 0; */
+}
+a{
+    text-decoration: none;
+    display: inline;
+    color: black;
+}
+.main-container{
+    display: grid;
+    /* aplico el tama;o para separa las secciones 
+    de esta vista en este caso son 3 secciones navegacion 
+    informacion general y el data table */
+    grid-template-rows: 0.5fr 0.5fr 2fr 1.5fr 4.5fr; 
+    margin-left: 0;
+    height: 100%;
+    width: calc(100% - var(--width-collapsed));
+    text-transform: uppercase;
+    top: 0;
+    overflow-y: scroll;
+
+    /* background-color: black; */
+} 
+
+/* inicia la seccion de navegacion */
+/* inicia la seccion de navegacion */
+.separador-navegacion{
+    height: auto;
+    width: 1.5rem;
+}
+
+.barra-navegacion{
+    display: grid;
+    width: 70%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-left: 0;
+    margin-bottom: 1.2rem;
+    height:3rem ;
+    /* border-bottom: solid 1px #9a9696; */
+
+    /* border-bottom: #9a9696; */
+}
+
+
+.barra-navegacion .items-navegacion{
+    font-size: 1.3rem;
+    height: 1.5rem;
+    justify-content: start;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+/* termina la seccion de navagecion */
+/* inicia seccion del buscador */
+.buscador-matricula{
+    display: grid;
+    grid-template-columns: 10fr 3fr;
+    gap: 3rem;
+    text-transform: uppercase;
+    top: 0;
+    margin-bottom: 1rem;
+    height: auto;
+    width: 100%;
+}
+.buscador-matricula .barra-buscador-matricula{
+    margin-top: 0;
+    margin-left: 5rem;
+    height: auto;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.buscador-matricula .boton-buscador{
+    font-size: 14;
+    margin-top: 0;
+    margin-right: 3rem;
+    height: auto;
+    width: 65%;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    grid-area: 1 / 2 / 2 / 3;
+
+}
+
+/* termina seccion del buscador */
+
+/* inicia seccion de informacion general */
+h1{
+    align-items: center;
+    
+}
+
+.detalle-general-pagina{
+    display: grid;
+    grid-template-rows: 1.4fr 5fr;
+    height: 100%;
+    margin-top: 0;
+}
+.detalle-general-pagina .nombre-pagina{
+    display: grid;
+    grid-template-columns: minmax(370px, 1fr);
+    justify-items: center ;
+    height: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.7rem;
+    
+}
+
+.detalle-general-pagina .contenedor-informacion-alumno{
+    display: grid;
+    grid-template-columns: 0.9fr 9fr 1.1fr;
+    height: 90%;
+    width: 100%;
+    left: 0;
+
+}
+
+/* comienzo del contenedor informacion alumno */
+
+.contenedor-informacion-alumno .contenedor-items-alumno{
+    display: grid;
+    grid-column: 2 / 3;
+    grid-template-columns: 3fr 6fr 4fr 5fr 0.4fr;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 1.5rem;
+    border-style: solid;
+    border-color: var(--color-borde-container);
+    font-size: 1.4rem;
+    font-weight: bold;
+    gap: 1.3rem;
+    /* text-align: right; */
+
+}
+
+.contenedor-asignatura-alumno{
+    display: grid;
+    grid-area: 1 / 1 / 3 / 2;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.contenedor-nombre-alumno{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+}
+.contenedor-matricula-alumno{
+    display: grid;
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.contenedor-carrera-alumno{
+    display: grid;
+    grid-area: 1 / 4 / 2 / 5;
+
+}
+
+.contenedor-empresa-alumno{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+
+}
+
+.contenedor-empresa-convenio-alumno{
+    display: grid;
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.contenedor-ver-cedula-alumno{
+    display: grid;
+    grid-area: 2 / 4 /3 / 5;
+}
+
+.contenedor-asignatura-alumno{
+    display: grid;
+    grid-template-rows: 1.2fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.contenedor-asignatura-alumno .imagen-proceso-asignatura{
+    display: grid;
+    align-items: flex-end;
+    justify-content: center;
+}
+.contenedor-asignatura-alumno .imagen-proceso-asignatura .imagen-proceso{
+    height:6rem;
+}
+.contenedor-asignatura-alumno .nombre-proceso-asignatura{
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.contenedor-nombre-alumno .nombre-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-matricula-alumno .matricula-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-carrera-alumno .carrera-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-empresa-alumno .empresa-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-empresa-convenio-alumno .empresa-convenio-alumno{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor-ver-cedula-alumno .ver-cedula{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* aqui empieza seccion estatus de definicion proyecto*/
+.contenedor-informacion-cedula{
+    display: grid;
+    grid-template-columns: 2fr 7fr 2fr;
+}
+
+.contenedor-items-cedula{
+    display: grid;
+    grid-column: 2 / 3;
+    border-style: solid;
+    border-radius: 1.5rem;
+    /* border-color: var(--color-borde-container); */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 1rem;
+}
+/* aqui comienza seccion de observaciones */
+.contenedor-observaciones{
+    background-color: #e6e6e6;
+    display: grid;
+    grid-template-columns: 0.44fr 8fr 0.67fr;
+    grid-template-rows: 0.7fr 7fr;
+
+    
+}
+.titulo-observaciones{
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: 2rem;
+    margin: 1rem 0;
+    justify-content: center;
+    text-align: center;
+}
+.contenedor-observaciones-generales{
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8fr 2fr;
+    gap: 2rem;
+    margin: 1rem 3rem;
+}
+.observaciones-academico{
+    display: grid;
+    grid-area: 1 / 1 / 2 / 3;
+    grid-template-rows: 0.5fr 4fr;
+
+}
+.mensaje-observaciones-academico{
+    display: grid;
+    border-radius: var(--border-radius);
+    font-size: 2rem;
+    resize: none;
+    background-color: #E6EBEE;
+
+}
+.remitente-academico{
+    display: grid;
+    justify-self: center;
+}
+.observaciones-coordinador{
+    display: grid;
+    grid-template-rows: 0.5fr 4fr;
+
+}
+.mensaje-observaciones-coordinador{
+    display: grid;
+    border-radius: var(--border-radius);
+    font-size: 2rem;
+    resize: none;
+
+
+}
+.remitente-coordinador{
+    display: grid;
+    justify-self: center;
+}
+.boton-aprobar-cedula{
+    display: grid;
+    width: 60%;
+    margin: 1rem 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    justify-self: center;
+    text-align: center;
+    
+}
+.boton-rechazar-cedula{
+    display: grid;
+    grid-area: 2 / 1 / 3 / 3;
+    width: 60%;
+    margin: 1rem 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    justify-self: center;
+    border-style: solid;
+    border-color: var(--color-borde-items);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 1rem;
+    word-wrap: break-word;
+
+}
+/* .boton-rechazar-cedula div{
+    height: 100%;
+
+} */
+
+@media screen and (max-width: 1280px){
+    .separador-navegacion{
+        height: auto;
+        width: 1rem;
+    }
+    .barra-navegacion{
+        /* margin-top: 5.6rem; */
+        font-size: 1rem;
+    }
+    .barra-navegacion .items-navegacion{
+        font-size: 1rem;
+        height: 1.5rem;
+        justify-content: start;
+        align-items: center;
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .buscador-matricula{
+        margin-top: 1rem;
+    }
+    .buscador-matricula .barra-buscador-matricula{
+        font-size: 1.1rem;
+    }
+    .buscador-matricula .boton-buscador{
+        font-size: 1rem;
+    }
+    .detalle-general-pagina .nombre-pagina{
+        font-size: 2.2rem;
+    }
+    .informacion-general .contenido-informacion-general{
+        /* background-color: #cd6e15; */
+        font-size: 1rem;
+    }
+
+    /*  aqui sirve esto */
+    .contenedor-informacion-alumno .contenedor-items-alumno{
+        font-size: 1rem;
+        font-weight: bold;
+
+    }
+    .contenedor-asignatura-alumno .nombre-proceso-asignatura{
+
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+    /* inicia el contenedor de codigo de colores */
+    .contenedor-items-cedula{
+        font-size: 1rem;
+    }
+    /* contenedor observaciones */
+    .contenedor-observaciones-generales{
+        font-size: 1rem;
+        font-weight: bold;
+
+
+    }
+    .remitente-academico{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .remitente-coordinador{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .boton-rechazar-cedula{
+        font-size: 1rem;
+        height: auto;
+        overflow: hidden;
+        white-space:unset;
+        text-overflow:unset;
+        
+        padding: 0.2rem 0.2rem;
+    }
+    .boton-aprobar-cedula{
+        font-size: 1rem;
+        height: auto;
+        overflow: hidden;
+        white-space: unset;
+        text-overflow: ellipsis;
+        padding: 0.2rem 0.2rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .main-container{
+        width: 100%;
+    }
+    .barra-navegacion{
+        margin-top: 5.6rem;
+    }
+}
+
