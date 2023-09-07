@@ -108,10 +108,10 @@ class CoordinadorCarreraRutasController extends Controller
 
 
          if($periodoExistenteComprobacion==true){
-            return view('vistasCoordinadoresCarrera.coordinadoresInicioProcesosAnteriores')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['alumnosAprobados'=>$alumnosAprobados])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['tituloPagina'=>$tituloPagina]);   
+            return view('vistasCoordinadoresCarrera.coordinadoresInicioProcesosAnteriores')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['alumnosAprobados'=>$alumnosAprobados])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['tituloPagina'=>$tituloPagina])->with(['procesoElegido'=>$procesoElegido]);   
          }
          else{
-            return view('vistasCoordinadoresCarrera.coordinadoresInicioProcesosAnteriores')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['alumnosAprobados'=>$alumnosAprobados])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['tituloPagina'=>$tituloPagina]);   
+            return view('vistasCoordinadoresCarrera.coordinadoresInicioProcesosAnteriores')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['alumnosAprobados'=>$alumnosAprobados])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['tituloPagina'=>$tituloPagina])->with(['procesoElegido'=>$procesoElegido]);   
          }
 
     }
@@ -214,5 +214,21 @@ class CoordinadorCarreraRutasController extends Controller
                 return response()->file($nombreD);
             } else return redirect('estancia1_Documentos/' . $proces)->with('error', 'Documento no encontrado, favor de revisar con el usuario');
         }
+
+            //ruta para pasar al ajax en las plantillas del datatable.
+        public function dataTableCoordinacion($procesoElegido){
+
+            $userCarrera = Auth::user()->IdCarrera;
+
+        $procesosAsignadosAnteriores = Orm_proceso::where('IdCarrera', $userCarrera)->where('IdTipoProceso', $procesoElegido)->get();
+    
+        //se pasa en la ruta el boton desde el servidor y la informacion en formato json, con la ayuda de la dependencia yajra 9.21.2 para datatable .
+        return datatables()->of($procesosAsignadosAnteriores)
+        ->addColumn('actions', function($procesosAsignadosAnteriores) {
+            return '<a style="color:#3B96D1" href="/progresoDocumentacionCoordinacion/'.$procesosAsignadosAnteriores->IdProceso.'" ><i class="glyphicon glyphicon-edit"></i> '.$procesosAsignadosAnteriores->user_proceso->alumno_perfil_user->Nombre.' '.$procesosAsignadosAnteriores->user_proceso->alumno_perfil_user->APP.' '.$procesosAsignadosAnteriores->user_proceso->alumno_perfil_user->APM.'</a>';
+        })->rawColumns(['actions'])->toJson();
+    
+        }
+
 
 }

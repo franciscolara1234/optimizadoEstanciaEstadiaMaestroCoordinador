@@ -103,7 +103,7 @@ class AsesorAcademicoRutasController extends Controller
         // dump($procesosAsignadosAnteriores);
 
 
-         return view('vistasAsesoresAcademicos.inicioProcesoAsesorAcademico')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['tituloPagina'=>$tituloPagina])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['alumnosAprobados'=>$alumnosAprobados]);
+         return view('vistasAsesoresAcademicos.inicioProcesoAsesorAcademico')->with(['procesosAsignados' => $procesosAsignadosAnteriores])->with(['alumnosConEmpresa'=>$alumnosConEmpresa])->with(['alumnosSinEmpresa'=>$alumnosSinEmpresa])->with(['tituloInicio'=>$tituloInicio])->with(['tituloPagina'=>$tituloPagina])->with(['alumnosReprobados'=>$alumnosReprobados])->with(['alumnosAprobados'=>$alumnosAprobados])->with(['procesoElegido'=>$procesoElegido]);
          
         
     }
@@ -276,8 +276,11 @@ class AsesorAcademicoRutasController extends Controller
 
                 $documentoEstado->estadoAca = $idEstado; 
                 $documentoEstado->save();
+
                 $comentario = Orm_comentarios_docu::where('IdDoc', $idDoc)->where('TipoComentario', 1)->first();
-                $comentario->delete(); // Elimina el comentario
+                if(!empty($comentario)){
+                    $comentario->delete(); // Elimina el comentario
+                }
                 return redirect()->route('cedulas', ['identificadorProceso'=>$identificadorProceso, 'identificadorDocumento'=>$identificadorDocumento])->with('aceptadoDoc', 'Documento guardado');
             break;
             case 2:
@@ -557,5 +560,22 @@ class AsesorAcademicoRutasController extends Controller
        }
             
     }
+
+    //ruta para pasar al ajax en las plantillas del datatable.
+    public function dataTable($procesoElegido){
+
+        $idAseAcademico = Auth::user()->id;
+        $idPerfilAcademico = Orm_aa_academico::where('IdUser', $idAseAcademico)->select('IdAsesor')->first();
+        $procesosAsignadosAnteriores = Orm_aacademico_proceso::where('IdAsesor', $idPerfilAcademico->IdAsesor)->whereHas('proceso', function($query) use($procesoElegido){
+            $query->where('IdTipoProceso', $procesoElegido);
+        })->with(['proceso'])->get();
+        //se pasa en la ruta el boton desde el servidor y la informacion en formato json, con la ayuda de la dependencia yajra 9.21.2 para datatable .
+    return datatables()->of($procesosAsignadosAnteriores)
+    ->addColumn('actions', function($procesosAsignadosAnteriores) {
+        return '<a style="color:#3B96D1" href="/progresoDocumentacion/'.$procesosAsignadosAnteriores->proceso->IdProceso.'" ><i class="glyphicon glyphicon-edit"></i> '.$procesosAsignadosAnteriores->proceso->user_proceso->alumno_perfil_user->Nombre.' '.$procesosAsignadosAnteriores->proceso->user_proceso->alumno_perfil_user->APP.' '.$procesosAsignadosAnteriores->proceso->user_proceso->alumno_perfil_user->APM.'</a>';
+    })->rawColumns(['actions'])->toJson();
+
+    }
+
     ////termina el controlador 
 }

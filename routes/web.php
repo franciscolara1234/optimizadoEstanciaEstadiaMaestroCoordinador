@@ -486,6 +486,10 @@ Route::controller(AsesorAcademicoRutasController::class)->group(function () {
     Route::post('guardarCalificacion/{procesoAlumno}', 'guardarCalificacion' )->name('guardarCalificacion')->middleware('auth.academico');
 
     Route::patch('cambiarEstadoDoc/{idDoc}/{idProceso}', 'cambiarEstadoDoc' )->name('cambiarEstadoDoc')->middleware('auth.academico');
+
+    Route::get('dataTable/{procesoElegido}', 'dataTable' )->name('dataTable')->middleware('auth.academico');
+
+
 });
 
 Route::match(['post','get'],'/ver_documentoAcademico/{name}/{proces}', [AsesorAcademicoRutasController::class, 'ver_documentoAcademico'])
@@ -505,6 +509,9 @@ Route::controller(CoordinadorCarreraRutasController::class)->group(function (){
     Route::get('progresoDocumentacionCoordinacion/{identificadorProceso}', 'progresoDocumentacionCoordinacion' )->name('progresoDocumentacionCoordinacion')->middleware('auth.coordinador');
 
     Route::get('calificacionCoordinacion/{idProcesoAlumno}/{identificadorProceso}', 'calificacionCoordinacion' )->name('calificacionCoordinacion')->middleware('auth.coordinador');
+
+    Route::get('dataTableCoordinacion/{procesoElegido}', 'dataTableCoordinacion' )->name('dataTableCoordinacion')->middleware('auth.coordinador');
+
 
     // Route::get('calificacionCoordinacion', 'calificacionCoordinacion' )->name('calificacionCoordinacion')->middleware('auth.coordinador');
 

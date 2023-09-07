@@ -146,18 +146,18 @@
                                         <p class="aptitudes-1">aptitudes</p>
                                         <p class="calificacion-1">cal.</p>
                     
-                                        <label for="asistencia-puntualidad" class="asistencia-puntualidad">cumplimiento del plan de trabajo</label>
+                                        <label class="asistencia-puntualidad">cumplimiento del plan de trabajo</label>
                                         <input type="number" name="cal1" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal1}}" class="cal1" size="3"  min="50" max="100" required >
 
-                                        <label for="respeto-normas-reglamentos" class="respeto-normas-reglamento">respeto a normas y reglamentos</label>
+                                        <label class="respeto-normas-reglamento">respeto a normas y reglamentos</label>
                                         <input type="number" name="cal2" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal2}}" class="calificacion-02" size="3" min="50" max="100"  required >
                     
                     
-                                        <label for="diciplina-tareas-asignadas" class="diciplina-tareas-asignadas">diciplina en tareas asignadas</label>
+                                        <label class="diciplina-tareas-asignadas">diciplina en tareas asignadas</label>
                                         <input type="number" name="cal3" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal3}}" class="calificacion-03" size="3" min="50" max="100"  required >
                     
                                         
-                                        <label for="capacidad-integracion-colaboracion" class="capacidad-integracion-colaboracion">capacidad de integración y colaboración</label>
+                                        <label class="capacidad-integracion-colaboracion">capacidad de integración y colaboración</label>
                                         <input type="number" name="cal4" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal4}}" class="califiacion-04" size="3" min="50" max="100"  required>
                     
                                         </div>
@@ -172,21 +172,21 @@
                                 <p class="aptitudes-2">aptitudes</p>
                                 <p class="calificacion-2">cal.</p>
 
-                                <label for="cumplimiento-plan-trabajo" class="cumplimiento-plan-trabajo">cumplimiento del plan de trabajo</label>
+                                <label class="cumplimiento-plan-trabajo">cumplimiento del plan de trabajo</label>
                                 <input type="number" name="cal5" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal5}}" class="califiacion-05" size="3" min="50" max="100"  required>
 
-                                <label for="interes-funcion-empresa" class="interes-funcion-empresa">interés por funciones de la empresa</label>
+                                <label class="interes-funcion-empresa">interés por funciones de la empresa</label>
                                 <input type="number" name="cal6" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal6}}" class="calificacion-06" size="3" min="50" max="100"  required>
 
 
-                                <label for="entrega-resultados-tareas-asignadas" class="entrega-resultados-tareas-asignadas">entrega resultados de tareas asignadas</label>
+                                <label class="entrega-resultados-tareas-asignadas">entrega resultados de tareas asignadas</label>
                                 <input type="number" name="cal7" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal7}}" class="calificacion-07" size="3"  min="50" max="100"  required>
 
                                 
-                                <label for="toma-decisiones-oportunas" class="toma-decisiones-oportunas">toma decisiones oportunas</label>
+                                <label class="toma-decisiones-oportunas">toma decisiones oportunas</label>
                                 <input type="number" name="cal8" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal8}}" class="califiacion-08" size="3"  min="50" max="100" required>
 
-                                <label for="demuestra-seguridad-habilidad" class="demuestra-seguridad-habilidad">demuestra seguridad habilidad</label>
+                                <label class="demuestra-seguridad-habilidad">demuestra seguridad habilidad</label>
                                 <input type="number" name="cal9" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal9}}" class="califiacion-09" size="3" min="50" max="100" required>
                                 
                                 </div>
@@ -200,13 +200,13 @@
                                 <p class="aptitudes-2">aptitudes</p>
                                 <p class="calificacion-2">cal.</p>
 
-                                <label for="redacción-ortografía-formato" class="redacción-ortografía-formato">redacción, ortografía y formato</label>
+                                <label class="redacción-ortografía-formato">redacción, ortografía y formato</label>
                                 <input type="number" name="cal10" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal10}}" class="califiacion-10" size="3"  min="50" max="100" required  >
 
-                                <label for="cumplimiento-proyecto" class="cumplimiento-proyecto">cumplimiento del estatus-definicion-proyecto</label>
+                                <label class="cumplimiento-proyecto">cumplimiento del estatus-definicion-proyecto</label>
                                 <input type="number" name="cal11" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal11}}" class="califiacion-11" size="3"  min="50" max="100" required >
 
-                                <label for="conclusiones-contribucion-tecnica" class="conclusiones-contribucion-tecnica">conclusiones y contribución técnica</label>
+                                <label class="conclusiones-contribucion-tecnica">conclusiones y contribución técnica</label>
                                 <input type="number" name="cal12" value="{{$procesoSeleccionado->calificaciones_proceso[0]->cal12}}" class="califiacion-12" size="3"  min="50" max="100"  required>
 
                             </div>

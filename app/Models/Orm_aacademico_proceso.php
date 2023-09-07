@@ -10,7 +10,9 @@ class Orm_aacademico_proceso extends Model
     use HasFactory;
     protected $table = 'aa_pp';
     public $timestamps = false;
- 
+    protected $with = [
+        'aa_academico'
+    ];
 
     //aqui van las relaciones que apuntan a las que esta tabla apunta a las llaves foraneas con las que se relaciona
 

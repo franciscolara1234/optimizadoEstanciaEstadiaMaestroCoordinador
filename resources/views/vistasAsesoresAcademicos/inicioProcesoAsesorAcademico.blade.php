@@ -131,87 +131,7 @@
                             </tr>
                         
                     </thead>
-                    <tbody class="table-scroll">
-                        {{-- @foreach ($datosTabla as $datosTabla)
-                            @foreach (10 as 1)
-                            
-                                <tr >
-                                    <td>alumno</td>
-                                    <td>
-                                        <a href="">
-                                        </a>
-                                    </td>
-                                    <td>3</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td><a href="">cedula en linea</a></td>
-                                </tr>
-                            @endforeach  --}}
-                            @foreach ($procesosAsignados as $items)
-                            
-                                <tr >
-                                    {{-- <td>{{$datosTabla['matricula']}}</td> --}}
-                                    <td>{{$items->proceso->user_proceso->Matricula}}</td>
-                                    <td>
-                                        <a href="{{ route('progresoDocumentacion', $identificadorProceso = $items->proceso->IdProceso) }}" style="color:#3B96D1">
-                                            {{$items->proceso->user_proceso->alumno_perfil_user->Nombre}} {{$items->proceso->user_proceso->alumno_perfil_user->APP}} {{$items->proceso->user_proceso->alumno_perfil_user->APM}}
-                                        </a>
-                                    </td>
-                                    <td>{{$items->proceso->tipo_procesos_proceso->nombreProceso}}</td>
-                                    <td>{{$items->proceso->user_proceso->carrera_user->NombreCarrera}}</td>
-                                    <td>
-                                        @if (sizeof($items->proceso->calificaciones_proceso)!=0)
-
-                                                @if ($items->proceso->calificaciones_proceso[0]->cal_final >= 70)
-                                                    <p style="color:green">
-                                                        aprobado
-                                                    </p>
-                                                @elseif($items->proceso->calificaciones_proceso[0]->cal_final <= 69)
-                                                    <p style="color:red">
-                                                        Reprobado
-                                                    </p>
-                                                @elseif($items->proceso->calificaciones_proceso[1]->cal_final >= 70)
-                                                    <p style="color:red">
-                                                        Reprobado
-                                                    </p>    
-                                                @elseif($items->proceso->calificaciones_proceso[1]->cal_final <= 69)
-                                                    <p style="color:red">
-                                                        Reprobado
-                                                    </p>
-                                                @endif
-                                        @else
-
-                                        @endif
-                                        {{-- @foreach ($items->proceso->detalle_doc_proceso as $item)
-
-                                        @if (($item->documentos_detallesDoc->IdTipoDoc)==7 )
-                                            
-                                        <a style="color:blue" target="__blank" href="{{ route('ver_documentoAcademico', [$item->documentos_detallesDoc->ruta, $item->documentos_detallesDoc->IdTipoDoc])}}">{{$item->documentos_detallesDoc->ruta}}</a>
-                                        @else
-                                        @endif
-
-
-                                @endforeach   --}}
-                                    </td>
-                                    {{-- <td>{{$datosTabla['nombre_proceso']}}</td>
-                                    <td>{{$datosTabla['nombre_carrera']}}</td>
-                                    <td>{{$datosTabla['nombre_emp']}}</td> --}}
-                                    {{-- <td>
-                                        @foreach ($items->proceso->detalle_doc_proceso as $item)
-
-                                            @if (($item->documentos_detallesDoc->IdTipoDoc)==6 )
-                                                
-                                            <a style="color:blue" target="__blank" href="{{ route('ver_documentoAcademico', [$item->documentos_detallesDoc->ruta, $item->documentos_detallesDoc->IdTipoDoc])}}">{{$item->documentos_detallesDoc->ruta}}</a>
-                                            @else
-                                            @endif
-                                        @endforeach  
-                                    </td> --}}
-                                    <td> 
-                                    {{$items->proceso->periodo_proceso->Periodo}}
-                                    </td>
-                                </tr>
-                            @endforeach 
-                    </tbody>
+     
                 </table>
             </div>
         </div>
@@ -219,7 +139,7 @@
         </section>
     </main>
     {{-- se llama a la plantilla que ocntiene todos los scrips con los cdns necesarios para cargar el data table --}}
-    @extends('plantillas/plantillaJsDataTable')
+    @extends('plantillas/asesoresAcademicos/plantillaDataTableConAjax')
     @section('scripstStart')
     @endsection
 </body>

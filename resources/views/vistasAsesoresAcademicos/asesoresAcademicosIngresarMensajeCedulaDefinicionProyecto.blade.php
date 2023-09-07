@@ -130,7 +130,7 @@
             <form class="contenedor-observaciones-generales">
                 @csrf
                 <div class="observaciones-academico" observaciob>
-                    <label for="asesor-academico" class="remitente-academico">asesor académico</label>
+                    <label class="remitente-academico">asesor académico</label>
 
                     <textarea class="mensaje-observaciones-academico" name="Comentario"  minlength="20" maxlength="1000" readonly>@if ($documento->comentarios_documentos[0]->TipoComentario==1){{$documento->comentarios_documentos[0]->Comentario}}@else{{$documento->comentarios_documentos[1]->Comentario}}@endif</textarea>
 
@@ -157,7 +157,7 @@
                 {{-- @method("PATCH") --}}
                 @csrf
                 <div class="observaciones-academico" observaciob>
-                    <label for="asesor-academico" class="remitente-academico">asesor académico</label>
+                    <label class="remitente-academico">asesor académico</label>
 
                     {{-- @if ($documento->comentarios_documentos[0]->TipoComentario==1){{$documento->comentarios_documentos[0]->Comentario}}
                         

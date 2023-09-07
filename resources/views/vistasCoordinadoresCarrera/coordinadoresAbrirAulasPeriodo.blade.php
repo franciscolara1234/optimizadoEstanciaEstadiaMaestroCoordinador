@@ -119,9 +119,9 @@
                 <div class="row">
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="tipo-proceso" class="form-label">Proceso Elegido</label>
+                            <label class="form-label">Proceso Elegido</label>
 
-                            <select id="tipoProceso"  class="form-control form-control-lg" name="select-tipo-proceso" reandoly>
+                            <select id="tipoProceso1"  class="form-control form-control-lg" name="select-tipo-proceso" reandoly>
 
                                 @foreach ($procesosNombres as $item)
                                     <option value="{{$item['IdTipoProceso']}}">
@@ -131,18 +131,18 @@
                             </select>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="carrera" class="form-label">Carrera Elegida</label>
+                            <label class="form-label">Carrera Elegida</label>
 
-                            <select id="tipoProceso"  class="form-control form-control-lg" name="select-carrera" reandoly>
+                            <select id="tipoProceso2"  class="form-control form-control-lg" name="select-carrera" reandoly>
                                 <option value="{{$carreraSeleccionada[0]->IdCarrera}}">{{$carreraSeleccionada[0]->NombreCarrera}}</option>
                             </select>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                             <div class="form-outline mb-4">
-                                <label for="tipo-proceso" class="form-label">Elegir Al Asesor Académico Para El Proceso Elegido</label>
+                                <label class="form-label">Elegir Al Asesor Académico Para El Proceso Elegido</label>
 
-                                <select id="tipoProceso"  class="form-control form-control-lg" name="select-id-maestro" >
+                                <select id="tipoProceso3"  class="form-control form-control-lg" name="select-id-maestro" >
                                     @foreach ($maestros as $item)
                                     <option value="{{$item['id']}}">{{$item->aa_academico_user->Nombre}}  {{$item->aa_academico_user->APP}} {{$item->aa_academico_user->APM}}</option>
                                     @endforeach
@@ -174,7 +174,7 @@
 
 {{-- </section> --}}
 
-        <script src="./js/abrirAulaAsesorAcademicoSelectNoneBlock.js"></script>
+        {{-- <script src="./js/abrirAulaAsesorAcademicoSelectNoneBlock.js"></script> --}}
 
     {{-- se llama a la plantilla que ocntiene todos los scrips con los cdns necesarios para cargar el data table --}}
     @extends('plantillas/plantillaJsDataTable')
